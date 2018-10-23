@@ -47,14 +47,17 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="frequencySelect">Department</label>
                 <div class="col-md-7">
-
                     <div>
-                        <form:select path="department.departmentType" id="frequencySelect" class="form-control input-sm">
+                        <form:select path="department.departmentType" id="frequencySelect"
+                                     class="form-control input-sm">
                             <form:option value="">Select Department: </form:option>
                             <%--<c:forEach items="${student.department.departmentType}" var="frequency">--%>
                             <form:options items="${departmentType}" class="form-control input-sm"/>
                             <%--</c:forEach>--%>
                         </form:select>
+                        <div class="has-error">
+                            <form:errors path="department.departmentType" class="help-inline"/>
+                        </div>
                     </div>
                         <%--<form:input type="text" path="department.departmentType" id="department" class="form-control input-sm" />
                         <div class="has-error">
@@ -124,20 +127,20 @@
             <div class="form-actions floatRight">
                 <c:choose>
                     <c:when test="${edit}">
-                        <input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a
-                            href="<c:url value='/list' />">Cancel</a>
+                        <input type="submit" value="Update" class="btn btn-primary btn-sm"/> or
+                        <a href="<c:url value='/list' />">Cancel</a>
                     </c:when>
                     <c:otherwise>
-                        <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a
-                            href="<c:url value='/list' />">Cancel</a>
+                        <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or
+                        <a href="<c:url value='/list' />">Cancel</a>
                     </c:otherwise>
                 </c:choose>
 
             </div>
-            <div class="well">
+            <%--<div class="well">
                 <a href="<c:url value='/newuser' />">Add New User</a>
             </div>
-
+--%>
         </div>
     </form:form>
 </div>
