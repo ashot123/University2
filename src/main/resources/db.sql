@@ -1,5 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS `university2` DEFAULT CHARACTER SET utf8 ;
-USE `university` ;
+USE `university2` ;
 
 -- -----------------------------------------------------
 -- Table `university`.`departments`
