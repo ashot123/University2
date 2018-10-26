@@ -1,7 +1,10 @@
 package am.ak.university.entities;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -14,15 +17,19 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id ;
 
-    @NotEmpty
+    //@Size(min = 3, message="Длина фамилии должна быть больше трех")
+    //@NotNull
+    /*@NotEmpty*/
+    @NotBlank
     @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @NotEmpty
+    @NotBlank
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @NotEmpty
+   /* @NotBlank*/
+    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name="id_departments")
     /*@JoinTable(name = "student_department",
@@ -60,7 +67,6 @@ public class Student {
     public Department getDepartment() {
         return department;
     }
-
 
 
     public void setDepartment(Department department) {
