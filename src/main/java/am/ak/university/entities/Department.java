@@ -11,7 +11,7 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @NotBlank
+    //@NotBlank
     @Column(name = "department", length = 15, unique = true, nullable = false)
     private String departmentType; /* = DepartmentType.GEOGRAPHY.departmentType;*/
 

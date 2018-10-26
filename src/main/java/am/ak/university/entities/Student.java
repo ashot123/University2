@@ -1,13 +1,9 @@
 package am.ak.university.entities;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "students")
@@ -20,16 +16,16 @@ public class Student {
     //@Size(min = 3, message="Длина фамилии должна быть больше трех")
     //@NotNull
     /*@NotEmpty*/
-    @NotBlank
+    @NotBlank(message = "{NotEmpty.firs_name.name}" )
     @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "{NotEmpty.last_name}")
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
    /* @NotBlank*/
-    @NotNull
+    //@NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name="id_departments")
     /*@JoinTable(name = "student_department",
